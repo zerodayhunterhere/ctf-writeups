@@ -39,8 +39,8 @@ Included screenshots:
 
 Downloaded meme images used in the public writeup:
 
-- `assets/meme-1.jpg` from `https://imgflip.com/i/7f9w9t`
-- `assets/meme-2.jpg` from `https://imgflip.com/i/7jpcmo`
+- `assets/meme-browser-chrome.jpg` from `https://imgflip.com/i/nqqw4`
+- `assets/meme-works-on-my-machine.jpg` from `https://imgflip.com/i/3ubxjf`
 
 ## Layout
 

@@ -64,6 +64,10 @@ action=archive_seal_record
 
 This queues our chosen ref for the admin bot.
 
+That remote-stability step was the difference between "nice local exploit" and "actually reproducible remote solve":
+
+![Works on my machine meme](./assets/meme-works-on-my-machine.jpg)
+
 ### 3. CSP nonce leak
 
 Rendered records include a CSP header with a nonce. The nonce is visible from the response header:
@@ -100,6 +104,10 @@ https://127.0.0.1:1338/?render=<xss-ref>
 ```
 
 When the bot reviews the queued ref, Chromium follows the fallback and renders our second record inside the admin session. The CSP nonce is already embedded, so the script runs.
+
+This is the most absurd part of the chain: the exploit works because the browser politely accepts the forged fallback and walks itself into localhost.
+
+![Browser meme](./assets/meme-browser-chrome.jpg)
 
 ### 6. WordPress AJAX nonce and PHP object injection
 
@@ -214,22 +222,8 @@ The second stability fix was the WordPress path:
 
 Without it, the solver could log in as the clerk but could not reliably reach the seal nonce needed to queue the record.
 
-## Meme Corner
+## Closing Note
 
 This solve in one sentence:
 
 > I filed a form, forged a browser package, convinced WordPress to deserialize modern art, and then length-extended a keeper into handing me the flag.
-
-Also:
-
-```text
-Archivist: "Every record is reviewed."
-Me:       "Great, please review this definitely normal Signed Exchange."
-Chrome:   "Say less."
-```
-
-And because every hard web solve eventually turns into sleep deprivation plus browser archaeology:
-
-![CTF meme 1](./assets/meme-1.jpg)
-
-![CTF meme 2](./assets/meme-2.jpg)
