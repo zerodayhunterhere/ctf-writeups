@@ -41,7 +41,7 @@ Records are indexed by `ref`. The public submit endpoint accepts a user-chosen `
 
 The important detail is that the bot only needs the ref to be in its queue. Once a ref is queued, the body behind that ref can be replaced.
 
-### 2. Self-sealing with WordPress path confusion
+### 2. Self-sealing with Apache/PHP path confusion
 
 Initially I expected to wait for an existing seeded ref from:
 
@@ -55,7 +55,14 @@ The more reliable primitive is to self-seal a ref as the clerk. The seal UI is m
 /wp-admin/index.php/%0A/wp-admin/toplevel_page_archive-desk
 ```
 
-That path lets WordPress accept the admin page path shape used by the challenge code and exposes the seal nonce. With the nonce, the solver calls:
+What matters is the disagreement between layers:
+
+- Apache still serves `/wp-admin/index.php`
+- the challenge plugin later derives the admin page path from `$_SERVER['REQUEST_URI']`
+- the newline survives into that regex-driven path derivation
+- the derived path now looks like `/wp-admin/toplevel_page_archive-desk`
+
+So the request executes through a clerk-accessible page load, but the plugin believes we are on the Reviewer Desk screen and prints the seal nonce. That nonce is enough to call:
 
 ```text
 POST /wp-admin/admin-ajax.php
@@ -214,13 +221,13 @@ Any one of these would be survivable alone. Together they become paperwork with 
 
 The most important remote stability fix was the self-seal step. Waiting for a seeded ref from `.reports.queue` works only when the instance already has one. Self-sealing creates the queued ref ourselves, so the bot has something deterministic to review.
 
-The second stability fix was the WordPress path:
+The second stability fix was the newline path:
 
 ```text
 /wp-admin/index.php/%0A/wp-admin/toplevel_page_archive-desk
 ```
 
-Without it, the solver could log in as the clerk but could not reliably reach the seal nonce needed to queue the record.
+Without it, the solver could log in as the clerk but could not reliably reach the seal nonce needed to queue the record. The important point is that this is not just "weird routing"; it is a concrete server/application disagreement over what path is being processed.
 
 ## Closing Note
 
