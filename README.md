@@ -4,19 +4,6 @@ Personal writeup repository prepared locally.
 
 Current contents:
 
-- `SekaiCTF/EnD`
-- `SekaiCTF/Filtered-Reality`
-
-The included EnD folder contains:
-
-- a verified Python solver
-- a full exploit-chain writeup
-- screenshots from the event and challenge page
-- custom meme assets for the writeup
-
-The included Filtered Reality folder contains:
-
-- a verified remote solver
-- a polished writeup
-- operator notes
-- supporting payload files
+- `NHNC-2026/xdd` — heap-overflow + max_input_vars CSP kill + XSS chain (497 pts, 0 solves)
+- `SekaiCTF/EnD` — response desync + smuggled service worker + range oracle
+- `SekaiCTF/Filtered-Reality` — deserialization + filter bypass

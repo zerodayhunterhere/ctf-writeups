@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="280" viewBox="0 0 600 280">
+  <rect width="600" height="280" rx="12" fill="#1e1e2e"/>
+  <text x="300" y="40" text-anchor="middle" font-family="Impact,sans-serif" font-size="20" fill="#f38ba8">THINGS I TYPE INTO XSS PAYLOADS</text>
+  <rect x="40" y="60" width="520" height="50" rx="6" fill="#313244"/>
+  <text x="300" y="90" text-anchor="middle" font-family="monospace" font-size="16" fill="#a6e3a1">&lt;script&gt;alert(1)&lt;/script&gt;</text>
+  <text x="540" y="90" font-family="sans-serif" font-size="14" fill="#585b70">boring</text>
+  <rect x="40" y="120" width="520" height="50" rx="6" fill="#313244"/>
+  <text x="300" y="150" text-anchor="middle" font-family="monospace" font-size="16" fill="#a6e3a1">&lt;img src=x onerror=alert(1)&gt;</text>
+  <text x="540" y="150" font-family="sans-serif" font-size="14" fill="#585b70">basic</text>
+  <rect x="40" y="180" width="520" height="50" rx="6" fill="#45475a" stroke="#f38ba8" stroke-width="2"/>
+  <text x="300" y="210" text-anchor="middle" font-family="monospace" font-size="16" fill="#f9e2af">&lt;script&gt;alert('XDD')&lt;/script&gt;</text>
+  <text x="540" y="210" font-family="sans-serif" font-size="14" fill="#f38ba8">GOAT</text>
+  <text x="300" y="265" text-anchor="middle" font-family="Impact,sans-serif" font-size="24" fill="#cdd6f4">"if XDD doesn't pop, was it even XSS?"</text>
+</svg>
