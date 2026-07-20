@@ -4,9 +4,9 @@
 **Points:** 67  
 **Solves:** 154  
 **Author:** k0d  
-**Team:** antiskill (#2 overall, 2nd solve on this chall)
+**Team:** W4llz (#2 global, first blood on this chall)
 
-> We placed **2nd overall** in OmniCTF 2026 Quals. This was one of the challenges we blooded early — second solve, just 7 minutes after first blood.
+> We placed **2nd overall** in OmniCTF 2026 Quals and grabbed **first blood** on StayWild — solved it in 34 minutes.
 
 ![Scoreboard](images/firstblood.png)
 
@@ -235,4 +235,4 @@ Good challenge by k0d. The layering of frontend bypass -> tar injection -> comma
 
 ---
 
-*antiskill | OmniCTF 2026 Quals — 2nd place overall*
+*W4llz | OmniCTF 2026 Quals — 2nd place overall*
